@@ -13,7 +13,6 @@ function App() {
 
       <Form bg_color="bg-white" /> {/* COMPONENTE PADRE CON PROP CHILDREN*/}
 
-
     </div >
   )
 }
