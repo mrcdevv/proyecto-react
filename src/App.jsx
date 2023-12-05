@@ -1,6 +1,7 @@
 import './App.css'
 import Form from './components/Form'
 import NavBar from './components/NavBar'
+import MainBody from './components/MainBody'
 
 function App() {
 
@@ -9,9 +10,9 @@ function App() {
 
       <NavBar />
 
-      <h2 className="font-sans mb-6"> INICIO DE SESION</h2>
+      {/*<Form bg_color="bg-white" />*/}
 
-      <Form bg_color="bg-white" /> {/* COMPONENTE PADRE CON PROP CHILDREN*/}
+      <MainBody />
 
     </div >
   )
