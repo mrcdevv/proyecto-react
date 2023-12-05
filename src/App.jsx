@@ -1,20 +1,20 @@
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
+
 import './App.css'
-import Form from './components/Form'
 import NavBar from './components/NavBar'
 import MainBody from './components/MainBody'
+import Home from './screens/Home'
+import Form from './screens/Form'
 
 function App() {
 
   return (
-    <div className="w-full max-w-xs">
-
-      <NavBar />
-
-      {/*<Form bg_color="bg-white" />*/}
-
-      <MainBody />
-
-    </div >
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/form' element={<Form />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
