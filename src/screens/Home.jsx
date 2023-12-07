@@ -1,11 +1,9 @@
-import NavBar from '../components/NavBar'
-import MainBody from '../components/MainBody'
+import Cards from "../components/Cards"
 
 function Home() {
   return (
     <>
-      <NavBar />
-      <MainBody />
+      <Cards />
     </>
   )
 }
