@@ -14,7 +14,7 @@ function MainCard(props) {
           </h5>
           <img
             alt={props.title}
-            src={props.}
+            src={props.thumbnail}
             class="relative inline-block h-[74px] w-[74px] rounded-full border-2 border-white object-cover object-center"
           />
         </div>
