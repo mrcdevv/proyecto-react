@@ -40,8 +40,8 @@ function Cards() {
           <MainCard
             key={game.id} // Agrega un key único para cada elemento en el array
             title={game.title}
-            thumbnail={game.thumbnail}
-            shortDesc={game.short_description}
+            image={game.thumbnail}
+            description={game.short_description}
           />
         ))
       ) : (
