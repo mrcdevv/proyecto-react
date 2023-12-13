@@ -34,11 +34,11 @@ function Cards() {
 
 
   return (
-    <>
+    <div className="flex flex-wrap">
       {data.length > 0 ? (
         data.slice(0, 21).map((game) => (
           <MainCard
-            key={game.id} // Agrega un key único para cada elemento en el array
+            key={game.id}
             title={game.title}
             image={game.thumbnail}
             description={game.short_description}
@@ -47,7 +47,7 @@ function Cards() {
       ) : (
         <CardsSkeleton />
       )}
-    </>
+    </div>
   );
 }
 
