@@ -5,15 +5,7 @@ import CardsSkeleton from "./CardsSkeleton";
 function Cards() {
   const [data, setData] = useState([])
 
-  const url = 'https://api.themoviedb.org/3/discover/movie?api_key={}';
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '9645663335msh061dc3a348613dfp10a583jsn187daadda971',
-      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
-    }
-  }
-
+  const url = 'https://api.themoviedb.org/3/discover/movie?api_key={}}';
 
   useEffect(() => {
     async function fetchData() {
