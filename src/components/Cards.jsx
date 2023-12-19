@@ -5,12 +5,13 @@ import CardsSkeleton from "./CardsSkeleton";
 function Cards() {
   const [data, setData] = useState([])
 
-  const url = 'https://api.themoviedb.org/3/discover/movie?api_key={}}';
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}`;
+
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(url, options);
+        const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
           setData(data);
