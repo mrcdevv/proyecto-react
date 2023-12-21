@@ -14,7 +14,7 @@ function Cards() {
         const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
-          setData(data);
+          setData(data.results);
         }
       } catch (err) {
         console.log(err);
@@ -33,8 +33,8 @@ function Cards() {
           <MainCard
             key={game.id}
             title={game.title}
-            image={game.thumbnail}
-            description={game.short_description}
+            image={game.vote_count}
+            description={game.overview}
           />
         ))
       ) : (
