@@ -25,6 +25,7 @@ function Cards() {
     console.log(data);
   }, [])
 
+  const img_path = "https://image.tmdb.org/t/p/w154"
 
   return (
     <div className="flex flex-wrap">
@@ -33,7 +34,7 @@ function Cards() {
           <MainCard
             key={game.id}
             title={game.title}
-            image={game.vote_count}
+            image={img_path + game.poster_path}
             description={game.overview}
           />
         ))
