@@ -28,7 +28,7 @@ function Cards() {
   const img_path = "https://image.tmdb.org/t/p/w154"
 
   return (
-    <div className="flex flex-wrap">
+    <div className="container flex flex-wrap">
       {data.length > 0 ? (
         data.slice(0, 21).map((game) => (
           <MainCard
