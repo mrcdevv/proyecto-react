@@ -1,12 +1,10 @@
 import Cards from "../components/Cards"
-import NavBar from "../components/NavBar"
 
 function Home() {
   return (
-    <>
-      <NavBar />
+    <div className="container mx-auto px-4">
       <Cards />
-    </>
+    </div>
   )
 }
 
