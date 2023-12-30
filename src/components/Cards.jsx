@@ -28,19 +28,23 @@ function Cards() {
   const img_path = "https://image.tmdb.org/t/p/w154"
 
   return (
-    <div className="w-calc-100%-250px flex flex-wrap">
-      {data.length > 0 ? (
-        data.slice(0, 21).map((game) => (
-          <MainCard
-            key={game.id}
-            title={game.title}
-            image={img_path + game.poster_path}
-            description={game.overview}
-          />
-        ))
-      ) : (
-        <CardsSkeleton />
-      )}
+    <div className="w-calc-100%-250px">
+      <p className="text-base mb-1.5 ">Release date</p>
+
+      <div className="w-full flex flex-wrap">
+        {data.length > 0 ? (
+          data.slice(0, 21).map((game) => (
+            <MainCard
+              key={game.id}
+              title={game.title}
+              image={img_path + game.poster_path}
+              description={game.overview}
+            />
+          ))
+        ) : (
+          <CardsSkeleton />
+        )}
+      </div>
     </div>
   );
 }

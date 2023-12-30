@@ -1,7 +1,7 @@
 function NavBar() {
   return (
     <nav className="bg-[#121832] h-[65px] w-full flex items-center">
-      <div className="container mx-auto px-4 flex justify-between">
+      <div className="container mx-auto flex justify-between">
         <h1 className="text-xl font-bold">Nesfli</h1>
         <div className="flex items-center">
           <div className="flex items-center">
