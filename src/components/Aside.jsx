@@ -11,12 +11,12 @@ function Aside() {
   }
 
   const yearsButtons = years.map((year) => (
-    <DateFilter year={year} />
+    <DateFilter key={year} year={year} />
   ));
 
   return (
     <aside className="w-[14.6875em] pt-[15px] ">
-      <p className="text-base mb-1.5 ">Release date</p>
+      <p className="text-lg mb-1.5 font-bold">Release date</p>
       <div className="flex flex-wrap">
         {yearsButtons.reverse()}
       </div>
