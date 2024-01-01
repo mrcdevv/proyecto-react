@@ -6,9 +6,9 @@ function NavBar() {
         <div className="flex items-center">
           <div className="flex items-center">
             <ul className="flex items-center space-x-6">
-              <li className="font-semibold ">Home</li>
-              <li className="font-semibold ">Series</li>
-              <li className="font-semibold ">Premieres</li>
+              <li className="font-semibold ">Inicio</li>
+              <li className="font-semibold ">Categorias</li>
+              <li className="font-semibold ">Estrenos</li>
               <li>
                 <form action="" className="bg-[#090e21] ml-2 border-solid border-[1px] border-[#248dea] rounded px-3 h-8 flex items-center">
                   <input className=" bg-[#090e21]" type="text" name="search" id="search" placeholder="Search..." />

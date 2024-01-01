@@ -16,7 +16,7 @@ function Aside() {
 
   return (
     <aside className="w-[14.6875em] pt-[15px] ">
-      <p className="text-lg mb-1.5 font-bold">Release date</p>
+      <p className="text-lg mb-1.5 font-bold">Año de lanzamiento</p>
       <div className="flex flex-wrap">
         {yearsButtons.reverse()}
       </div>
