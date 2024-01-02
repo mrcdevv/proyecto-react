@@ -1,5 +1,5 @@
 function Pagination({ totalPages, currentPage, onPageChange }) {
-  const maxVisiblePages = 5; // Ajusta según tu preferencia
+  const maxVisiblePages = 5;
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const getVisiblePages = () => {
