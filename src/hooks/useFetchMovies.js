@@ -22,6 +22,8 @@ export function useFetchMovies(url) {
         const data = await response.json()
         setData(data.results)
         setTotalPages(data.total_pages >= 500 ? 500 : data.total_pages)
+
+        // TODO: implement abort controller
       }
     }
 
