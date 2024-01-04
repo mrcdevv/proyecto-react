@@ -28,6 +28,8 @@ export function useFetchMovies(url) {
     }
 
     fetchData()
+
+    return -1
   }, [url, currentPage])
 
   function handlePageChange(pageNumber) {
