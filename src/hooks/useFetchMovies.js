@@ -4,6 +4,7 @@ export function useFetchMovies(url) {
   const [data, setData] = useState([])
   const [totalPages, setTotalPages] = useState(1)
   const [currentPage, setCurrentPage] = useState(1)
+  const [controller, setController] = useState(new AbortController());
 
 
   const options = {
@@ -11,29 +12,42 @@ export function useFetchMovies(url) {
     headers: {
       accept: 'application/json',
       Authorization: `${import.meta.env.VITE_API_KEY}`
-    }
+    },
+    signal: controller.signal
   }
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${url}&page=${currentPage}`, options)
+      try {
+        const response = await fetch(`${url}&page=${currentPage}`, options);
 
-      if (response.ok) {
-        const data = await response.json()
-        setData(data.results)
-        setTotalPages(data.total_pages >= 500 ? 500 : data.total_pages)
-
-        // TODO: implement abort controller
+        if (response.ok) {
+          const result = await response.json();
+          setData(result.results);
+          setTotalPages(result.total_pages >= 500 ? 500 : result.total_pages);
+        }
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          console.log('Fetch aborted');
+        } else {
+          console.error('Error during fetch:', error);
+        }
       }
     }
 
-    fetchData()
+    fetchData();
 
-    return -1
-  }, [url, currentPage])
+    return () => controller.abort();
+  }, [url, currentPage, controller, options]);
+
 
   function handlePageChange(pageNumber) {
-    setCurrentPage(pageNumber)
+    controller.abort();
+
+    const newController = new AbortController();
+    setController(newController);
+
+    setCurrentPage(pageNumber);
   }
 
   return [data, totalPages, currentPage, handlePageChange]
