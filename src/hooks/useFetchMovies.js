@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 
 export function useFetchMovies(url) {
-  const [data, setData] = useState([])
-  const [totalPages, setTotalPages] = useState(1)
-  const [currentPage, setCurrentPage] = useState(1)
-  const [controller, setController] = useState(new AbortController());
+  const [data, setData] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [controller, setController] = useState(null);
 
+  useEffect(() => {
+    setController(new AbortController());
+  }, []);
 
   const options = {
     method: 'GET',
@@ -13,8 +16,8 @@ export function useFetchMovies(url) {
       accept: 'application/json',
       Authorization: `${import.meta.env.VITE_API_KEY}`
     },
-    signal: controller.signal
-  }
+    signal: controller?.signal
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -37,12 +40,14 @@ export function useFetchMovies(url) {
 
     fetchData();
 
-    return () => controller.abort();
+    return () => {
+      if (controller) controller.abort();
+    };
   }, [url, currentPage, controller, options]);
 
 
   function handlePageChange(pageNumber) {
-    controller.abort();
+    if (controller) controller.abort();
 
     const newController = new AbortController();
     setController(newController);
@@ -50,5 +55,5 @@ export function useFetchMovies(url) {
     setCurrentPage(pageNumber);
   }
 
-  return [data, totalPages, currentPage, handlePageChange]
+  return [data, totalPages, currentPage, handlePageChange];
 }
