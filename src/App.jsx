@@ -3,7 +3,6 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import Home from './screens/Home'
 import Premiers from './screens/Premiers'
 import NavBar from './components/NavBar'
-import './App.css'
 
 
 function App() {

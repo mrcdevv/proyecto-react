@@ -20,6 +20,10 @@ body {
   margin: 0 auto;
 }
 
+#root {
+  margin: 0 auto;
+}
+
 .custom-scroll::-webkit-scrollbar {
   width: 8px;
 }
