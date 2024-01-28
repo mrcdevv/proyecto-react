@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useFetchMovies } from "../hooks/useFetchMovies";
 
 import MainCard from "./MainCard";
