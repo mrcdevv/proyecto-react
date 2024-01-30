@@ -13,8 +13,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/estrenos' element={<Premiers />} />
-        <Route path='/:categoria' element={<Home />} />
-        <Route path='/:categoria/:anio' element={<Home />} />
+        <Route path='/peliculas/:anio' element={<Home />} />
+        <Route path='/peliculas/categoria/:categoria' element={<Home />} />
+        <Route path='/pelicula/:nombre' element={<Home />} />
       </Routes>
     </BrowserRouter>
   )
