@@ -1,4 +1,6 @@
-function MovieDetails() {
+function MovieDetails({ id }) {
+
+
 
   return (
     <div>
