@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function useFetchMovie(url) {
-
+  const [data, setData] = useState([])
 
   const options = {
     method: 'GET',
@@ -11,5 +11,16 @@ export function useFetchMovie(url) {
     },
     signal: controller?.signal
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(url, options)
+      const data = await response.json()
+      setData(data)
+    }
+
+    fetchData()
+
+  }, [options])
 
 }
