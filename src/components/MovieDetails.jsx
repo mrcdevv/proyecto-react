@@ -1,6 +1,7 @@
-function MovieDetails({ id }) {
+import { useFetchMovie } from "../hooks/useFetchMovie"
 
-
+function MovieDetails({ url }) {
+  const [data] = useFetchMovie(url)
 
   return (
     <div>

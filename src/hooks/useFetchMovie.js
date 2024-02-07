@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 
 export function useFetchMovie(url) {
   const [data, setData] = useState([])
+  const [controller, setController] = useState(null);
+
+  useEffect(() => {
+    setController(new AbortController());
+  }, []);
+
 
   const options = {
     method: 'GET',
@@ -21,6 +27,12 @@ export function useFetchMovie(url) {
 
     fetchData()
 
-  }, [options])
+    return () => {
+      if (controller) controller.abort();
+    };
+
+  }, [url, options])
+
+  return [data]
 
 }

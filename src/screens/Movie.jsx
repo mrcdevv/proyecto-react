@@ -3,10 +3,11 @@ import MovieDetails from "../components/MovieDetails"
 
 function Movie() {
   const { id } = useParams
+  const url = `https://api.themoviedb.org/3/movie/${id}?language=es`
 
   return (
     <>
-      <MovieDetails id={id} />
+      <MovieDetails url={url} />
     </>
   )
 
