@@ -18,6 +18,7 @@ function Cards({ title, apiEndpoint }) {
           data.map((game) => (
             <MainCard
               key={game.id}
+              id={game.id}
               title={game.title}
               image={poster_img_path + game.poster_path}
               year={new Date(game.release_date).getFullYear()}
