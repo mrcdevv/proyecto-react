@@ -9,10 +9,12 @@ function MovieDetails({ url }) {
     return roundedNumber;
   }
 
+  const img_url = `http://image.tmdb.org/t/p/w342/${data.poster_path}`
+
   return (
     <div>
       <div>
-        <img src="" alt="" />
+        <img src={img_url} alt="" />
       </div>
       <div>
         <h1>{data.title}</h1>
