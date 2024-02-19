@@ -15,13 +15,13 @@ function Cards({ title, apiEndpoint }) {
 
       <div className="w-full flex flex-wrap">
         {data.length > 0 ? (
-          data.map((game) => (
+          data.map((movie) => (
             <MainCard
-              key={game.id}
-              id={game.id}
-              title={game.title}
-              image={poster_img_path + game.poster_path}
-              year={new Date(game.release_date).getFullYear()}
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              image={poster_img_path + movie.poster_path}
+              year={new Date(movie.release_date).getFullYear()}
             />
           ))
         ) : (

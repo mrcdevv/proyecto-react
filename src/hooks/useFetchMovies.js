@@ -45,6 +45,10 @@ export function useFetchMovies(url) {
     };
   }, [url, currentPage, controller, options]);
 
+  // Añadir la dependencia 'url' aquí para que se actualice cuando cambie
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [url]);
 
   function handlePageChange(pageNumber) {
     if (controller) controller.abort();
