@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export function useFetchMovies(url) {
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
-  const [controller, setController] = useState(null);
+  const [controller, setController] = useState(new AbortController());
 
   useEffect(() => {
     setController(new AbortController());
-  }, []);
+  }, [url]);
 
   const options = {
     method: 'GET',
@@ -16,7 +16,7 @@ export function useFetchMovies(url) {
       accept: 'application/json',
       Authorization: `${import.meta.env.VITE_API_KEY}`
     },
-    signal: controller?.signal
+    signal: controller.signal
   };
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function useFetchMovies(url) {
         if (response.ok) {
           const result = await response.json();
           setData(result.results);
-          setTotalPages(result.total_pages >= 500 ? 500 : result.total_pages);
+          setTotalPages(Math.min(result.total_pages, 500));
         }
       } catch (error) {
         if (error.name === 'AbortError') {
@@ -40,21 +40,15 @@ export function useFetchMovies(url) {
 
     fetchData();
 
-    return () => {
-      if (controller) controller.abort();
-    };
-  }, [url, currentPage, controller, options]);
 
-  // Añadir la dependencia 'url' aquí para que se actualice cuando cambie
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [url]);
+    return () => {
+    };
+  }, [url, currentPage, options]);
 
   function handlePageChange(pageNumber) {
-    if (controller) controller.abort();
+    controller.abort();
 
-    const newController = new AbortController();
-    setController(newController);
+    setController(new AbortController());
 
     setCurrentPage(pageNumber);
   }
